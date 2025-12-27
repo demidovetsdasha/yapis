@@ -239,7 +239,7 @@ function is_prime(x: int):
             return true
         return has_divisor(y, d + 1)
 
-    return not has_divisor(x, 2)
+    return has_divisor(x, 2)
 
 function is_prime(x: int, has_divisor: bool):
     return not has_divisor
