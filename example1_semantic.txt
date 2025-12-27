@@ -1,0 +1,34 @@
+create users_table with (
+    id: int,
+    name: string,
+    age: int,
+    city: string
+)
+
+create orders_table with (
+    id: int,
+    user_id: int,
+    amount: float,
+    created: date
+)
+
+insert to users_table:
+    id, name, age, city = 1, "Anna", 28, "Oslo"
+    id, name, age, city = 2, "Ola", 35, "Bergen"
+
+write users_table
+
+select id from users_table as user_ids
+write user_ids
+
+insert to orders_table where user_id from user_ids:
+    id, user_id, amount, created = 100, user_id, 4.95, "2025-09-01"
+    id, user_id, amount, created = 101, user_id, 19.99, "2025-09-03"
+
+join users_table with orders_table by id and user_id as joined
+
+filter joined by amount > 10 and name[0] == 'A' as big_orders
+
+sort <desc> big_orders by amount as sorted
+
+write sorted

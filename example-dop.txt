@@ -1,0 +1,12 @@
+create transactions with (
+    id: int,
+    amount: float,
+    tax: float = amount * 0.2,
+    total: float = amount + tax
+)
+
+insert to transactions:
+    id, amount = 1, 150.0
+    id, amount = 2, 80.0
+
+write transactions

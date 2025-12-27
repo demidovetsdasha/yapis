@@ -1,0 +1,35 @@
+create numbers with (n: int)
+
+for i in 1..5:
+    insert to numbers:
+        n = i
+
+write numbers
+
+x = true
+switch x:
+    case is true:
+        write "true"
+    default:
+        write "false"
+
+select n from numbers as selected
+for x in selected:
+    if x % 2 == 0:
+        write "even:"
+        write x
+    else:
+        write "odd:"
+        write x
+
+counter = 3
+while counter > 0:
+    write counter
+    counter = counter - 1
+
+write " "
+
+x = 0.1
+y = 4
+z = x + y
+write z
